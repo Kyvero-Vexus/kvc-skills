@@ -11,6 +11,16 @@
 ## Capability delta
 After this run, `<skill>` should reliably improve `<metric>` on `<benchmark suite>` compared to baseline.
 
+## Benchmark partitions
+- dev_set:
+- test_set (held out):
+- regression_set (must-pass):
+
+## Objective function
+- primary metric:
+- secondary metrics (latency/cost/consistency):
+- tie-break rule:
+
 ## Mutation priorities (ordered)
 1.
 2.
