@@ -13,3 +13,7 @@
 - **cleanroom-reverse-engineering-strict**
   - High-assurance CRRE path with hard A/B/C isolation and fail-closed CI gates.
   - File: `skills/cleanroom-reverse-engineering-strict/SKILL.md`
+
+- **autoresearch-skill-improvement**
+  - Iterative keep/discard loop for skill optimization inspired by karpathy/autoresearch.
+  - File: `skills/autoresearch-skill-improvement/SKILL.md`
