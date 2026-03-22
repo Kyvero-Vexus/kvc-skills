@@ -127,7 +127,8 @@ Produce clause-based behavior specs:
 - edge cases,
 - version deltas,
 - test vectors,
-- option/flag behavior matrix (explicitly include suppression/pass-through semantics where applicable).
+- option/flag behavior matrix (explicitly include suppression/pass-through semantics where applicable),
+- stateful stream lifecycle semantics (especially terminal/end-of-input flush behavior).
 
 Expression hygiene:
 - no copied code fragments,

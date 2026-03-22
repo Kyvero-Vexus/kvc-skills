@@ -67,6 +67,7 @@ Rule: implementation work may read `crre/specs` + `crre/tests`, not raw `analysi
 For each feature:
 - write at least one spec clause `CRRE-SPEC-*`
 - include a compact option/flag behavior matrix for edge-case semantics
+- include explicit stateful end-of-input behavior notes (if stream/group state exists)
 - write at least one test `CRRE-TST-*`
 - link test to clause
 

@@ -79,6 +79,7 @@ C-Team sign-off required.
 Required:
 - clause-based functional specs (`CRRE-SPEC-*`)
 - explicit option/flag behavior matrix for CLI/API surface (including suppression/pass-through semantics for edge cases)
+- explicit stateful lifecycle semantics for stream/group tools (including end-of-input flush requirements)
 - expression-hygiene review records
 - full spec index
 
