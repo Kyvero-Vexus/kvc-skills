@@ -17,3 +17,7 @@
 - **autoresearch-skill-improvement**
   - Iterative keep/discard loop for skill optimization inspired by karpathy/autoresearch.
   - File: `skills/autoresearch-skill-improvement/SKILL.md`
+
+- **supermodeltools-codegraph**
+  - Generate codegraph/static-analysis artifacts via Supermodel API to support architecture understanding and clean-room planning.
+  - File: `skills/supermodeltools-codegraph/SKILL.md`

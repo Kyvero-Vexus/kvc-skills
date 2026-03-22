@@ -8,6 +8,7 @@ Public skill library for Kyvero Vexus agent operations.
 - `skills/cleanroom-reverse-engineering-quickstart/` — lightweight CRRE path
 - `skills/cleanroom-reverse-engineering-strict/` — high-assurance CRRE path
 - `skills/autoresearch-skill-improvement/` — autonomous keep/discard loop for benchmarked skill improvements
+- `skills/supermodeltools-codegraph/` — Supermodel API-powered structural code analysis for architecture and clean-room planning
 
 ## Supporting docs
 
