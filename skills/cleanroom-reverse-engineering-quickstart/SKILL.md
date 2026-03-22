@@ -66,6 +66,7 @@ Rule: implementation work may read `crre/specs` + `crre/tests`, not raw `analysi
 
 For each feature:
 - write at least one spec clause `CRRE-SPEC-*`
+- include a compact option/flag behavior matrix for edge-case semantics
 - write at least one test `CRRE-TST-*`
 - link test to clause
 
@@ -94,8 +95,8 @@ At release, produce:
 
 ```bash
 mkdir -p crre/{analysis,specs,tests,impl,templates,ci}
-cp docs/cleanroom-reverse-engineering/v2-executable-pack/templates/* crre/templates/
-cp docs/cleanroom-reverse-engineering/v2-executable-pack/ci/* crre/ci/
+cp /home/slime/info/clean-room-reverse-engineering/v2-executable-pack/templates/* crre/templates/
+cp /home/slime/info/clean-room-reverse-engineering/v2-executable-pack/ci/* crre/ci/
 cat > crre/spec-index.yaml <<'YAML'
 spec_ids: []
 YAML

@@ -67,12 +67,12 @@ Routing rule:
 
 Use the v2 pack produced from prior research as source-of-truth templates:
 
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/SOP.md`
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/RUNBOOK-contamination-response.md`
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/CI-TRACEABILITY-POLICY.md`
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/EVIDENCE-BUNDLE-SCHEMA.md`
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/templates/`
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/ci/`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/SOP.md`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/RUNBOOK-contamination-response.md`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/CI-TRACEABILITY-POLICY.md`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/EVIDENCE-BUNDLE-SCHEMA.md`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/templates/`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/ci/`
 
 If these are missing, recreate them before proceeding.
 
@@ -112,13 +112,22 @@ Record legal necessity for each activity.
 
 **Gate:** C-Team approves observation scope minimization.
 
+### Optional accelerator: Supermodel structural extraction
+
+When external upload is allowed for the target repo, A-Team may use:
+- `supermodeltools-codegraph` skill
+- dependency/call/domain/impact outputs
+
+Use only as structural evidence inputs for specs/tests. Do not treat API output as a substitute for contamination controls.
+
 ## Phase 3 — Functional Specs (A-Team)
 
 Produce clause-based behavior specs:
 - inputs/outputs/state/error semantics,
 - edge cases,
 - version deltas,
-- test vectors.
+- test vectors,
+- option/flag behavior matrix (explicitly include suppression/pass-through semantics where applicable).
 
 Expression hygiene:
 - no copied code fragments,
@@ -199,7 +208,7 @@ If contamination is suspected:
 6. publish remediation evidence.
 
 Use:
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/RUNBOOK-contamination-response.md`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/RUNBOOK-contamination-response.md`
 
 ---
 
@@ -212,9 +221,9 @@ Adopt these checks:
 - branch protection requiring compliance review.
 
 Reference implementations:
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/ci/validate_pr_traceability.py`
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/ci/validate_commit_footers.sh`
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/ci/github-action-crre-traceability.yml`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/ci/validate_pr_traceability.py`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/ci/validate_commit_footers.sh`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/ci/github-action-crre-traceability.yml`
 
 ---
 
@@ -225,8 +234,8 @@ Reference implementations:
 mkdir -p crre/{templates,ci}
 
 # Copy baseline templates
-cp docs/cleanroom-reverse-engineering/v2-executable-pack/templates/* crre/templates/
-cp docs/cleanroom-reverse-engineering/v2-executable-pack/ci/* crre/ci/
+cp /home/slime/info/clean-room-reverse-engineering/v2-executable-pack/templates/* crre/templates/
+cp /home/slime/info/clean-room-reverse-engineering/v2-executable-pack/ci/* crre/ci/
 
 # Add canonical indexes (initial)
 cat > crre/spec-index.yaml <<'YAML'

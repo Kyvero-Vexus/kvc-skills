@@ -78,6 +78,7 @@ C-Team sign-off required.
 
 Required:
 - clause-based functional specs (`CRRE-SPEC-*`)
+- explicit option/flag behavior matrix for CLI/API surface (including suppression/pass-through semantics for edge cases)
 - expression-hygiene review records
 - full spec index
 
@@ -120,7 +121,7 @@ No unresolved critical findings allowed.
 ## Gate 7 — Evidence bundle complete
 
 Must follow schema at:
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/EVIDENCE-BUNDLE-SCHEMA.md`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/EVIDENCE-BUNDLE-SCHEMA.md`
 
 Bundle must include:
 - governance,
@@ -148,10 +149,10 @@ Release is blocked if bundle validation fails.
 ## Tooling baseline
 
 Reference policy and scripts:
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/CI-TRACEABILITY-POLICY.md`
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/ci/validate_pr_traceability.py`
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/ci/validate_commit_footers.sh`
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/ci/github-action-crre-traceability.yml`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/CI-TRACEABILITY-POLICY.md`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/ci/validate_pr_traceability.py`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/ci/validate_commit_footers.sh`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/ci/github-action-crre-traceability.yml`
 
 ---
 
@@ -164,7 +165,7 @@ Any of the following auto-triggers the contamination runbook:
 - third-party allegation with plausible technical basis.
 
 Use:
-- `docs/cleanroom-reverse-engineering/v2-executable-pack/RUNBOOK-contamination-response.md`
+- `/home/slime/info/clean-room-reverse-engineering/v2-executable-pack/RUNBOOK-contamination-response.md`
 
 ---
 
