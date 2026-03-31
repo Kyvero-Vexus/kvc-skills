@@ -9,10 +9,12 @@ Public skill library for Kyvero Vexus agent operations.
 - `skills/cleanroom-reverse-engineering-strict/` — high-assurance CRRE path
 - `skills/autoresearch-skill-improvement/` — autonomous keep/discard loop for benchmarked skill improvements
 - `skills/supermodeltools-codegraph/` — Supermodel API-powered structural code analysis for architecture and clean-room planning
+- `skills/clim-spec/` — CLIM 2 spec workflow skill with local mirrored corpus and lookup helper
 
 ## Supporting docs
 
 - `docs/cleanroom-reverse-engineering/v2-executable-pack/` — SOP, runbook, CI policy, evidence schema, templates, and CI helper scripts.
+- `docs/clim-spec/` — mirrored CLIM 2 HTML specification plus local usage notes.
 
 ## Notes
 

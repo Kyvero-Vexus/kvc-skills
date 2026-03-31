@@ -21,3 +21,7 @@
 - **supermodeltools-codegraph**
   - Generate codegraph/static-analysis artifacts via Supermodel API to support architecture understanding and clean-room planning.
   - File: `skills/supermodeltools-codegraph/SKILL.md`
+
+- **clim-spec**
+  - Route CLIM 2 / McCLIM work to the right chapters in a local mirrored CLIM 2 corpus, with mandatory spec lookup and citations.
+  - File: `skills/clim-spec/SKILL.md`
