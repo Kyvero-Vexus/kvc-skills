@@ -6,6 +6,11 @@ This file is the practical companion to the main skill. Use it when you need to 
 - which spec chapters matter,
 - which local McCLIM examples are worth copying.
 
+For **full minimum coverage of the entire CLIM 2 spec**, pair this file with:
+- `references/full-spec-feature-map.md`
+
+This file emphasizes the most common build paths; the full-spec map keeps the skill from forgetting less-common chapters and appendices.
+
 ## What CLIM gives you in practice
 
 ### 1. Application frames and top-level command loops

@@ -2,7 +2,7 @@
 
 Capability delta under test:
 
-> After applying this skill, Claude Code should more reliably design and build McCLIM applications using the right CLIM interaction model, grounded in both the CLIM 2 spec and local McCLIM examples.
+> After applying this skill, Claude Code should more reliably design and build McCLIM applications using the right CLIM interaction model, grounded in both the CLIM 2 spec and local McCLIM examples, while still being able to range across the full CLIM 2 feature set when the user asks broadly.
 
 ## Baseline vs treatment
 
@@ -19,6 +19,8 @@ Capability delta under test:
 6. I need a form with text fields and buttons; what McCLIM patterns fit?
 7. I need dynamic partial redraws; when should I use incremental redisplay?
 8. Which local McCLIM example should I start from for a table-based semantic UI?
+9. Does CLIM cover menus, dialogs, bordered output, and text formatting, or only frames/panes/presentations?
+10. What appendix material matters in practice: CLIM-SYS, encapsulating streams, CL streams, or suggested extensions?
 
 ## Scoring rubric
 
@@ -44,12 +46,17 @@ Score each prompt 0–2 on each dimension.
 - 1: generic mention of McCLIM only
 - 2: points to concrete local McCLIM examples or implementation constraints
 
-### 5. Semantic discipline
+### 5. Full-spec coverage
+- 0: collapses CLIM to only the usual app-building subset
+- 1: mentions broader areas vaguely
+- 2: can range across the wider CLIM 2 feature surface, including less-common chapters and appendices
+
+### 6. Semantic discipline
 - 0: confuses CLIM-core and McCLIM-specific behavior
 - 1: partial distinction
 - 2: clear distinction
 
-Maximum score per prompt: 10
+Maximum score per prompt: 12
 
 ## Keep/discard criterion
 
@@ -57,5 +64,6 @@ Keep the new version only if it improves average score on:
 - build orientation
 - interaction-model choice
 - McCLIM practicality
+- full-spec coverage
 
 while preserving spec grounding.

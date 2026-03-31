@@ -11,7 +11,7 @@ metadata:
 
 ## Goal
 
-After applying this skill, Claude Code should reliably **build working CLIM applications on McCLIM** using CLIM 2 concepts correctly, instead of treating CLIM as only a spec-reading exercise.
+After applying this skill, Claude Code should reliably **build working CLIM applications on McCLIM** using CLIM 2 concepts correctly, while covering **the full CLIM 2 feature surface as a minimum** instead of collapsing CLIM into only the most common app-building patterns.
 
 Use the spec as the semantic ground truth and McCLIM as the concrete implementation and example corpus.
 
@@ -59,6 +59,7 @@ High-value McCLIM material:
 
 Sidecars:
 - `references/building-with-mcclim.md`
+- `references/full-spec-feature-map.md`
 - `references/mcclim-example-map.md`
 - `references/eval-plan.md`
 - `examples/minimal-app.lisp`
@@ -68,13 +69,14 @@ Sidecars:
 ## Quick workflow
 
 1. Classify the app or feature you are building.
-2. Choose the primary interaction style.
-3. Start from a nearby McCLIM example.
-4. Read the governing CLIM spec sections before committing to semantics.
-5. Build the frame, panes, and layout first.
-6. Add commands, presentations, gadgets, or formatted output as appropriate.
-7. Use output recording / redisplay deliberately for dynamic views.
-8. Keep CLIM-core semantics separate from McCLIM-specific behavior.
+2. Check the full CLIM feature atlas so the answer covers the whole spec surface when needed.
+3. Choose the primary interaction style.
+4. Start from a nearby McCLIM example.
+5. Read the governing CLIM spec sections before committing to semantics.
+6. Build the frame, panes, and layout first.
+7. Add commands, presentations, gadgets, formatted output, drawing, or stream behavior as appropriate.
+8. Use output recording / redisplay deliberately for dynamic views.
+9. Keep CLIM-core semantics separate from McCLIM-specific behavior.
 
 ## Procedure
 
@@ -91,7 +93,29 @@ Put the task into one or more of these buckets:
 
 If the request spans multiple buckets, choose one primary interaction model and note the rest as supporting mechanisms.
 
-### 2) Choose the right CLIM interaction model
+### 2) Check minimum spec coverage
+
+Before narrowing to a common app-building path, consult:
+- `references/full-spec-feature-map.md`
+
+Use it whenever the user asks any broad question like:
+- what CLIM features exist
+- whether CLIM supports a capability
+- what parts of the spec matter for a design
+- what CLIM includes beyond frames/panes/presentations/gadgets
+
+This ensures the skill covers at least:
+- conventions
+- geometry substrate
+- windowing substrate
+- drawing and medium output
+- extended stream output
+- output recording / tables / graphs / bordered output / text formatting / incremental redisplay
+- extended stream input / presentations / menus / dialogs
+- application-building chapters
+- CLIM-SYS / stream appendices / suggested extensions / legacy changes
+
+### 3) Choose the right CLIM interaction model
 
 Pick the mechanism that matches the problem.
 
@@ -139,7 +163,7 @@ Spec anchors:
 - Chapters 10–14 — drawing and designs
 - Chapter 29.4 — CLIM stream panes
 
-### 3) Start from a real McCLIM example
+### 4) Start from a real McCLIM example
 
 Before inventing a design from scratch, locate a nearby local example.
 
@@ -156,7 +180,7 @@ Examples:
 Use:
 - `references/mcclim-example-map.md`
 
-### 4) Read the spec sections that govern the pattern
+### 5) Read the spec sections that govern the pattern
 
 Do not just cargo-cult the example.
 Use the local mirror to verify semantics.
@@ -173,7 +197,7 @@ python3 /home/slime/projects/kvc-skills/skills/clim-spec/scripts/clim_spec_looku
 Use:
 - `references/building-with-mcclim.md`
 
-### 5) Build the frame first
+### 6) Build the frame first
 
 The usual backbone is:
 - package definition
@@ -187,7 +211,7 @@ Prefer abstract pane names and `make-pane`-style portability unless you have a g
 
 The spec explicitly treats application frames, panes, and command loops as the organizing structure of an app.
 
-### 6) Choose pane strategy deliberately
+### 7) Choose pane strategy deliberately
 
 Common pane roles:
 - **interactor-pane** — command input / REPL-like interaction
@@ -200,7 +224,7 @@ Rule of thumb:
 - if users should type commands, include an interactor pane
 - if users edit form fields, use gadgets or `accepting-values`
 
-### 7) Render semantics, not just pixels
+### 8) Render semantics, not just pixels
 
 If output corresponds to domain objects, prefer:
 - `present`
@@ -219,7 +243,7 @@ If the output is tabular or report-like, use:
 If the output is graph-like, use:
 - `format-graph-from-roots`
 
-### 8) Use commands, translators, and gadgets in the right places
+### 9) Use commands, translators, and gadgets in the right places
 
 Good division of labor:
 - **commands** for app actions and command tables
@@ -230,7 +254,23 @@ Good division of labor:
 Do not force everything into gadgets if the real abstraction is semantic object interaction.
 Do not force everything into translators if the real abstraction is a simple form.
 
-### 9) Plan for redisplay if the view changes often
+### 10) Do not forget the rest of the spec surface
+
+Common CLIM code tends to over-focus on frames, panes, commands, presentations, and gadgets.
+Do not forget that the spec also includes important builder-facing material in:
+- geometry and transformations
+- ports, grafts, and mirrored sheets
+- drawing options, text styles, graphics, color, designs
+- stream output/input protocols
+- bordered output and text formatting
+- menu and dialog facilities
+- encapsulating streams and CL stream interop
+- CLIM-SYS resources, multiprocessing, and locks
+- suggested extensions and CLIM 1.x migration notes
+
+If the task touches any of these, incorporate them explicitly instead of treating them as out-of-scope.
+
+### 11) Plan for redisplay if the view changes often
 
 If the app is stateful and dynamic, inspect:
 - output recording
@@ -240,7 +280,7 @@ If the app is stateful and dynamic, inspect:
 
 This matters for dashboards, inspectors, editors, and any view with partial updates.
 
-### 10) Be explicit about McCLIM specifics
+### 12) Be explicit about McCLIM specifics
 
 McCLIM is the implementation, not the spec.
 
@@ -258,16 +298,18 @@ When using this skill successfully, return:
 2. the frame/pane architecture you recommend or implemented
 3. the CLIM mechanisms being used (commands, presentations, gadgets, formatted output, redisplay, etc.)
 4. the CLIM spec files consulted
-5. the McCLIM example files consulted or adapted
-6. a clear distinction between CLIM-core semantics and McCLIM-specific behavior
-7. code or edits oriented toward a working McCLIM application
+5. the relevant CLIM feature areas covered from the full spec map when the request is broad
+6. the McCLIM example files consulted or adapted
+7. a clear distinction between CLIM-core semantics and McCLIM-specific behavior
+8. code or edits oriented toward a working McCLIM application
 
 ## Quality checks
 
 - [ ] the answer or implementation is about **building with CLIM**, not just browsing the spec
+- [ ] the skill can range across the **full CLIM 2 feature surface** when the request is broad
 - [ ] a real McCLIM example was consulted when a local pattern exists
 - [ ] relevant CLIM spec sections were consulted before asserting semantics
-- [ ] frame / panes / layout are defined coherently
+- [ ] frame / panes / layout are defined coherently when application structure is involved
 - [ ] the chosen interaction style matches the problem
 - [ ] presentations are used when output carries domain semantics
 - [ ] gadgets are used when form controls are the natural fit
@@ -285,15 +327,15 @@ When using this skill successfully, return:
 - if necessary, say the implementation may diverge or leave a corner unspecified
 
 ### User asks for features list rather than code
-- answer in terms of buildable capabilities:
-  - frames and command loops
-  - panes and layouts
-  - semantic presentations and typed input/output
-  - commands and command tables
-  - gadgets and forms
-  - formatted tables and graphs
-  - drawing, colors, patterns, transforms
-  - output recording and incremental redisplay
+- answer in terms of buildable capabilities across the **entire spec minimum**:
+  - conventions and protocol rules
+  - geometry and transformations
+  - sheets, ports, grafts, mirrors, repaint, notifications, events
+  - drawing options, text styles, graphics, color, designs
+  - extended stream output, output records, tables, graphs, borders, text formatting, redisplay
+  - extended stream input, gestures, pointer tracking, presentations, completion, menus, dialogs
+  - commands, command tables, frames, panes, gadgets
+  - CLIM-SYS, encapsulating streams, Common Lisp streams, suggested extensions, migration notes
 
 ### Dynamic UI gets messy
 - reconsider whether the design should rely more on presentations/output records or on gadgets

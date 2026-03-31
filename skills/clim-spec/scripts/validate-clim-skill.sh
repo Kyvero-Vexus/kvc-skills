@@ -15,6 +15,7 @@ fail() {
 
 [ -f "$skill_file" ] || fail "missing SKILL.md"
 [ -f "$skill_dir/references/building-with-mcclim.md" ] || fail "missing building-with-mcclim reference"
+[ -f "$skill_dir/references/full-spec-feature-map.md" ] || fail "missing full-spec-feature-map reference"
 [ -f "$skill_dir/references/mcclim-example-map.md" ] || fail "missing mcclim-example-map reference"
 [ -f "$skill_dir/references/eval-plan.md" ] || fail "missing eval-plan reference"
 [ -f "$skill_dir/examples/minimal-app.lisp" ] || fail "missing minimal app example"
@@ -26,6 +27,7 @@ fail() {
 [ -f "$mcclim_root/README.md" ] || fail "missing local McCLIM checkout"
 
 rg -q "build.*CLIM applications on McCLIM|build working CLIM applications on McCLIM" "$skill_file" || fail "skill is not clearly build-oriented"
+rg -q "full CLIM 2 feature surface|full-spec-feature-map" "$skill_file" "$skill_dir/references" || fail "skill does not clearly cover the full CLIM feature surface"
 rg -q "Documentation/Manual/examples/ex1.lisp|Examples/text-gadgets.lisp|simple-spreadsheet" "$skill_file" "$skill_dir/references" || fail "skill does not reference concrete McCLIM examples"
 
 python3 "$lookup" --toc >/dev/null || fail "lookup helper --toc failed"
