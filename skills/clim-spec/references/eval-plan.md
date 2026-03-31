@@ -2,60 +2,60 @@
 
 Capability delta under test:
 
-> After applying this skill, Claude Code should more reliably answer CLIM 2 and McCLIM questions with spec-backed citations and clearer separation between normative spec text and implementation-specific behavior.
+> After applying this skill, Claude Code should more reliably design and build McCLIM applications using the right CLIM interaction model, grounded in both the CLIM 2 spec and local McCLIM examples.
 
 ## Baseline vs treatment
 
-- **Baseline:** previous `skills/clim-spec/SKILL.md`
-- **Treatment:** current skill with explicit trigger contract, progressive disclosure sidecars, quality checks, and failure handling
+- **Baseline:** earlier `clim-spec` skill that primarily emphasized spec lookup
+- **Treatment:** current skill centered on building applications with McCLIM, with feature mapping, example routing, and spec-grounded implementation guidance
 
 ## Representative prompts
 
-1. Which CLIM chapter should I read for presentation translators?
-2. Does CLIM 2 specify how application frames interact with incremental redisplay?
-3. I am debugging a stale McCLIM pane; what CLIM sections should I inspect first?
-4. Is `move-sheet` a sheet geometry concern or a pane concern?
-5. What is normative in the CLIM mirror versus annotation noise?
-6. I need to port old CLIM 1.x frame code; where should I start?
-7. Which appendix matters for encapsulating streams?
-8. How should I answer a McCLIM question when the spec is silent?
+1. Build a minimal McCLIM app with one interactor pane.
+2. Build a browser where clicking displayed objects triggers commands.
+3. Should this spreadsheet-like UI use gadgets or presentations?
+4. What CLIM features are available for a dashboard/reporting app?
+5. How should I structure panes for a command-driven application?
+6. I need a form with text fields and buttons; what McCLIM patterns fit?
+7. I need dynamic partial redraws; when should I use incremental redisplay?
+8. Which local McCLIM example should I start from for a table-based semantic UI?
 
 ## Scoring rubric
 
 Score each prompt 0–2 on each dimension.
 
-### 1. Triggering accuracy
-- 0: skill would probably not trigger or would trigger for the wrong thing
-- 1: partial trigger clarity
-- 2: clear trigger match
+### 1. Build orientation
+- 0: answer stays at spec-summary level
+- 1: partly actionable
+- 2: clearly oriented toward building a working app
 
-### 2. Routing accuracy
-- 0: wrong chapters/sections
-- 1: partially correct routing
-- 2: correct primary routing with sensible cross-links
+### 2. Interaction-model choice
+- 0: wrong CLIM mechanism chosen
+- 1: partly reasonable
+- 2: correct mechanism choice (commands vs presentations vs gadgets vs formatted output, etc.)
 
-### 3. Normative discipline
-- 0: blends CLIM, McCLIM, and annotations together
+### 3. Spec grounding
+- 0: no CLIM 2 grounding
+- 1: vague chapter references
+- 2: relevant spec sections consulted or cited
+
+### 4. McCLIM practicality
+- 0: ignores local implementation/examples
+- 1: generic mention of McCLIM only
+- 2: points to concrete local McCLIM examples or implementation constraints
+
+### 5. Semantic discipline
+- 0: confuses CLIM-core and McCLIM-specific behavior
 - 1: partial distinction
-- 2: clearly separates spec requirements from implementation notes
-
-### 4. Citation readiness
-- 0: no reproducible local citations
-- 1: vague citation guidance
-- 2: clear local mirrored-file citation pattern
-
-### 5. Failure honesty
-- 0: improvises when the spec is silent
-- 1: mixed
-- 2: explicitly states ambiguity/silence
+- 2: clear distinction
 
 Maximum score per prompt: 10
 
 ## Keep/discard criterion
 
 Keep the new version only if it improves average score on:
-- routing accuracy
-- normative discipline
-- citation readiness
+- build orientation
+- interaction-model choice
+- McCLIM practicality
 
-with no regression in trigger clarity.
+while preserving spec grounding.

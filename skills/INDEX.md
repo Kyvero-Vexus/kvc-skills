@@ -23,7 +23,7 @@
   - File: `skills/supermodeltools-codegraph/SKILL.md`
 
 - **clim-spec**
-  - Route CLIM 2 / McCLIM work to the right chapters in a local mirrored CLIM 2 corpus, with mandatory spec lookup, explicit spec-vs-implementation separation, and local citations.
-  - Use when: CLIM semantics, frames, panes, gadgets, presentations, streams, redisplay, drawing, ports/grafts, or CLIM 1.x migration questions are in play.
-  - Do not use when: the question is generic Common Lisp or purely implementation-specific with no need for CLIM 2 grounding.
+  - Build CLIM applications on McCLIM using the right mix of frames, panes, commands, presentations, gadgets, formatted output, graphics, and redisplay, with the CLIM 2 spec as semantic ground truth.
+  - Use when: the user wants to build, extend, debug, or understand the practical feature set of CLIM/McCLIM.
+  - Do not use when: the question is generic Common Lisp or purely backend-internal with no application-building guidance needed.
   - File: `skills/clim-spec/SKILL.md`
